@@ -14,7 +14,7 @@
     /* --scroll-bar-color: hsl(var(--hue-color), 12%, 38%); 
     --scroll-thumb-color: hsl(var(--hue-color), 12%, 26%); */
     --scroll-bar-color: rgb(197, 195, 195); 
-    --scroll-thumb-color: rgb(54, 54, 54);
+    --scroll-thumb-color: var(--skin-color);
 
     /* ------------- Dark/Light Mode ---------------- */
     --light-bg: rgb(235, 235, 235);
@@ -455,17 +455,21 @@ input{
 .home{
     background: var(--box-color);
     position: relative;
-    background-image: url(assets/images/About_Img-removebg-preview.png);
+    background-image: url(assets/images/red_bg_image.jpg);
     height: 100vh;
     /* background-size: cover; */
-    background-repeat: no-repeat;
+    /* background-repeat: no-repeat; */
     background-position: 700px;
     transition: 2s ease-in-out;
 }
 .home_container{
     position: relative;
     height: 100%;
-    align-items: center;
+    display: flex; /* Use Flexbox for layout */
+    align-items: center; /* Center items vertically */
+    justify-content: space-between; /* Space between text and image */
+    padding: 2rem; /* Add some padding */
+    overflow: hidden;
 }
 /* .home_social{
     position: absolute;
@@ -501,9 +505,15 @@ input{
     transform: translateY(0.25rem);
     color: var(--skin-color);
 } */
-.home_img{
-    display: none;
-    /* z-index: 0; */
+
+.home_image {
+    flex: 1; /* Allow image section to take available space */
+    display: flex; /* Center the image vertically */
+    justify-content: center; /* Center the image horizontally */
+}
+.home_data {
+    flex: 1; /* Allow text section to take available space */
+    max-width: 600px; /* Optional: limit the width of the text section */
 }
 .home_title{
     font-size: var(--biggest-font-size);
@@ -600,6 +610,7 @@ input{
     column-gap: 0.5rem;
     row-gap: 0.5rem;
     margin-bottom: var(--mb-3);
+    margin-top: var(--mb-2);
 }
 .about_box{
     text-align: center;
@@ -686,6 +697,7 @@ input{
     display: flex;
     align-items: center;
     cursor: pointer;
+    overflow: hidden;
 }
 .skills_header:not(:last-child){
     margin-bottom: var(--mb-2-5);
@@ -747,12 +759,14 @@ input{
     width: 0; /* initial width */
     transition: width 0.3s ease-in-out; /* add transition property */
   }
+
   /* --------------- Work --------------- */
 .work_container{
     grid-template-columns: repeat(3, 330px);
     gap: 1.8rem;
     justify-content: center;
     padding-top: 1rem;
+    overflow: hidden; 
 }
 .work_filters{
     display: flex;
@@ -772,7 +786,7 @@ input{
     background-color: var(--box-color);
     border-radius: 0.5rem;
     padding: 1.25rem;
-    transition: 2s ease-in-out;
+    overflow: hidden; 
 }
 .portfolio_item-details{
     display: none;
@@ -1047,7 +1061,7 @@ input{
 
   /* --------------- Contact --------------- */
 .contact_container{
-    grid-template-columns: 300px 300px 340px;
+    grid-template-columns: 300px 300px;
     column-gap: 3rem;
     align-items: center;
     justify-content: center;
@@ -1111,6 +1125,7 @@ input{
     letter-spacing: 0.5px;
     border-radius: 0.50rem;
     transition: 0.3s;
+    caret-color: var(--skin-color);
 }
 textarea.input{
     padding: 0.8rem 1.2rem;
