@@ -67,7 +67,7 @@ let mixer = mixitup('.work_container', {
         target: '.work_card'
     },
     animation: {
-        duration: 400
+        duration: 500
     }
 });
 
